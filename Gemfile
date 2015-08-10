@@ -5,6 +5,8 @@ ruby '2.2.2'
 
 group :test do
   gem 'capybara'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
   gem 'rspec'
 end
 
