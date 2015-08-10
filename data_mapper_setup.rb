@@ -4,8 +4,8 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
 
-require './app/link'
+require './app/models/link'
 
 DataMapper.finalize
 
-Data_mapper.auto_upgrade!
+DataMapper.auto_upgrade!

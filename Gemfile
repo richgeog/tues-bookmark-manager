@@ -3,12 +3,14 @@ source "https://rubygems.org"
 
 ruby '2.2.2'
 
-group :test do
-  gem 'capybara'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'rspec'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra'
+gem 'rspec-sinatra'
 
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec'
 end
 
 # gem "rails"

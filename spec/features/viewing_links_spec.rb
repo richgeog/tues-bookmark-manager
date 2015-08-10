@@ -1,3 +1,6 @@
+require './data_mapper_setup'
+require 'spec_helper'
+
 feature 'Viewing links' do
 
   scenario 'the hompage has the link to the database' do
