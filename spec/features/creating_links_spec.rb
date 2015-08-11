@@ -1,3 +1,6 @@
+require './app/data_mapper_setup'
+require 'spec_helper'
+
 feature 'Creating links' do 
 
 	scenario 'I can create a new link' do

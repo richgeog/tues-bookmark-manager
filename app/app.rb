@@ -1,9 +1,10 @@
 require 'sinatra/base'
-# require 'link'
+require_relative './data_mapper_setup'
+# require_relative './models/link'
 
 class BookmarkManager < Sinatra::Base
   get '/' do
-    'Hello BookmarkManager!'
+    redirect to ('/links')
   end
 
   get '/links' do
