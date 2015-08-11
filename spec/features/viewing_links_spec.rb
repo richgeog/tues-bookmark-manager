@@ -3,6 +3,21 @@ require 'spec_helper'
 
 feature 'Viewing links' do
 
+	before(:each) do 
+  	Link.create(url: 'http://www.makersacademy.com',
+  							title: 'Makers Academy',
+  							tags: [Tag.first_or_create(name: 'education')])
+  	Link.create(url: 'http://www.google.com',
+  							title: 'Google',
+  							tags: [Tag.first_or_create(name:'search')])
+  	Link.create(url: 'http://www.tombo.com',
+  							title: 'This is Zombocom',
+  							tags: [Tag.first_or_create(name: 'bubbles')])
+  	Link.create(url: 'http://www.bubble-booble.com',
+  							title: 'Bubble Bobble',
+  							tags: [Tag.first_or_create(name: 'bubbles')])
+  end 
+
   scenario 'the hompage has the link to the database' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit '/links'
@@ -22,18 +37,5 @@ feature 'Viewing links' do
   	end 
   end 
 
-  before(:each) do 
-  	Link.create(url: 'http://www.makersacademy.com',
-  							title: 'Makers Academy',
-  							tags: [Tag.first_or_create(name: 'education')])
-  	Link.create(url: 'http://www.google.com',
-  							title: 'Google',
-  							tags: [Tag.first_or_create(name:'search')])
-  	Link.create(url: 'http://www.tombo.com',
-  							title: 'This is Zombocom',
-  							tags: [Tag.first_or_create(name: 'bubbles')])
-  	Link.create(url: 'http://www.bubble-booble.com',
-  							title: 'Bubble Bobble',
-  							tags: [Tag.first_or_create(name: 'bubbles')])
-  end 
+
 end

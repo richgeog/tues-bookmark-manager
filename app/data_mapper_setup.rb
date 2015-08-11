@@ -9,4 +9,4 @@ require './app/models/tag'
 
 DataMapper.finalize
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
