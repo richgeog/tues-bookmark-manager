@@ -12,5 +12,6 @@ ruby '2.2.2'
 
 group :development, :test do
  gem 'capybara'
+ gem 'factory_girl'
  gem 'rspec'
 end
