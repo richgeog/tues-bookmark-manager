@@ -1,7 +1,7 @@
 require './app/data_mapper_setup'
 require 'spec_helper'
 
-feature 'Creating links' do 
+feature 'Creating links' do
 
 	scenario 'I can create a new link' do
 		visit '/links/new'
@@ -11,12 +11,12 @@ feature 'Creating links' do
 
 		expect(current_path).to eq '/links'
 
-		within 'ul#links' do 
+		within 'ul#links' do
 			expect(page).to have_content('This is Zombocom')
-		end 
-	end 
+		end
+	end
 
-	scenario 'there are no links in the database at the start of the test' do 
-		expect(Link.count).to eq 0 
-	end 
-end 
+	scenario 'there are no links in the database at the start of the test' do
+		expect(Link.count).to eq 0
+	end
+end
