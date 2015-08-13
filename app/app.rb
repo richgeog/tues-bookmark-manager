@@ -1,13 +1,15 @@
-require 'sinatra/base'
-require_relative './data_mapper_setup'
-require 'sinatra/flash'
 require 'pry'
+require 'sinatra/base'
+require 'sinatra/flash'
+require_relative './data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
+  register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
-  register Sinatra::Flash
+
 
   helpers do
     def current_user
@@ -78,8 +80,15 @@ class BookmarkManager < Sinatra::Base
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
+    end
   end
-end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.now[:notice] = 'goodbye!'
+    erb :'sessions/new'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -4,7 +4,7 @@
   <% @links.each do |link| %>
     <li>
       Title: <%= link.title %>
-      URL:   <a href="<%=link.url%>" target="_blank"><%=link.url%></a>
+      URL:   <a href="http://<%=link.url%>" target="_blank"><%=link.url%></a>
       tag:   <%= link.tags.map(&:name) %>
     </li>
   <% end %>
