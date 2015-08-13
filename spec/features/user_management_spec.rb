@@ -22,7 +22,7 @@ feature 'User sign up' do
                     password_confirmation: '1')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario 'without a email address entered' do
@@ -31,7 +31,16 @@ feature 'User sign up' do
                     password_confirmation: '12345678')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Please enter valid email address'
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'I cannot sign up with an existing email' do
+    user = User.new(email: 'alice@example.com',
+                    password: '12345678',
+                    password_confirmation: '12345678')
+    sign_up(user)
+    expect { sign_up(user) }.to change(User, :count).by(0)
+    expect(page).to have_content('Email is already taken')
   end
 
   def sign_up(user)
