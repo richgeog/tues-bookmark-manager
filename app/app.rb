@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './data_mapper_setup'
 require 'sinatra/flash'
+require 'pry'
 
 class BookmarkManager < Sinatra::Base
 
@@ -58,7 +59,10 @@ class BookmarkManager < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       redirect to('/links')
-    else
+    elsif @user.email == ''
+      flash.now[:notice] = "Please enter valid email address"
+      erb :'users/new'
+    elsif @user.password_confirmation != @user.password
       flash.now[:notice] = "Password and confirmation password do not match"
       erb :'users/new'
     end
