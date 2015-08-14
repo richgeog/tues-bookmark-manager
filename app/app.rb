@@ -6,9 +6,7 @@ require './app/controller/sessions_controller'
 require './app/controller/tags_controller'
 require './app/controller/users_controller'
 require_relative '../data_mapper_setup'
-
 require 'pry'
-require 'sinatra/flash'
 require 'sinatra/partial'
 
 module Armadillo
