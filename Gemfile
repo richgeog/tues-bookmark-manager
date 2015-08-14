@@ -9,8 +9,8 @@ ruby '2.2.2'
  gem 'dm-postgres-adapter'
  gem 'sinatra-partial'
  gem 'pry'
- gem 'sinatra'
  gem 'rspec-sinatra'
+ gem 'sinatra'
  gem 'sinatra-flash'
 
 group :development, :test do
