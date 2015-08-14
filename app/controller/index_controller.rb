@@ -3,7 +3,8 @@ module Armadillo
     class Index < Base
 
       get '/' do
-        redirect to ('/links')
+        erb :'launch_page/launch'
+        # redirect to ('/links')
       end
 
     end
