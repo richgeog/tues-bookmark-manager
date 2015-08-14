@@ -1,9 +1,6 @@
-require './app/data_mapper_setup'
-require 'spec_helper'
-
 feature 'Viewing links' do
 
-	before(:each) do 
+	before(:each) do
   	Link.create(url: 'http://www.makersacademy.com',
   							title: 'Makers Academy',
   							tags: [Tag.first_or_create(name: 'education')])
@@ -16,7 +13,7 @@ feature 'Viewing links' do
   	Link.create(url: 'http://www.bubble-booble.com',
   							title: 'Bubble Bobble',
   							tags: [Tag.first_or_create(name: 'bubbles')])
-  end 
+  end
 
   scenario 'the hompage has the link to the database' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
@@ -27,15 +24,15 @@ feature 'Viewing links' do
     end
   end
 
-  scenario 'I can filter links by tag' do 
+  scenario 'I can filter links by tag' do
   	visit '/tags/bubbles'
-  	within 'ul#links' do 
+  	within 'ul#links' do
   		expect(page).not_to have_content('Makers Academy')
   		expect(page).not_to have_content('Code.org')
   		expect(page).to have_content('This is Zombocom')
   		expect(page).to have_content('Bubble Bobble')
-  	end 
-  end 
+  	end
+  end
 
 
 end

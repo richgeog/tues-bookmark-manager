@@ -1,4 +1,4 @@
-require_relative '../../app/models/user'
+require_relative '../../models/user'
 
 describe User do
 
